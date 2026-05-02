@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Number Game</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Welcomt to the Great Number Game!</h1>
+    <h4>I am thinking of a number between 1 and 100</h4>
+    <p>Take a guess!</p>
+    <p>Numbers of attempts: {{ attempts }}</p>
+
+    <div class="result-box {{message}}">
+        {% if message == "high" %}
+            <p>Too High!</p>
+        {% elif message == "low" %}
+            <p>Too Low!</p>
+        {% elif message == "correct" %}
+            <p>Correct!</p>
+            <p>{{ number }} was the number. </p>
+        {% elif message == "lose" %}
+            <p>You lost!</p>
+            <p>{{ number }} was the number. </p>
+        {% endif %}
+    </div>
+
+    {% if not game_over %}
+    <form action="guess/" method="POST">
+        {% csrf_token %}
+        <input type="text" name="number" id="number" required>
+        <input type="submit" value="submit">
+    </form>
+    {% endif %}
+
+    {% if player_guess == number %}
+    <form action="leaderboard/" method="POST">
+        {% csrf_token %}
+        <input type="text" name="player_name" placeholder="Enter your name" required>
+        <input type="submit" value="Save score">
+    </form>
+    {% endif %}
+
+    <form action="reset/" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="reset">
+    </form>
+</body>
+</html>
