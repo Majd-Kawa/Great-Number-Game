@@ -1,5 +1,6 @@
 import random
 from django.shortcuts import render, redirect
+from .models import LeaderboardScore
 
 # Create your views here.
 def index(request):
@@ -61,11 +62,17 @@ def guess(request):
 
 def leaderboard(request):
     if request.method == 'POST':
-        request.session['player_name'] = request.POST['player_name']
+        name = request.POST['player_name']
+        attempts = request.session['attempts']
+
+        if request.session.get('message') == 'correct' and name:
+            score = LeaderboardScore(player_name=name, attempts=attempts)
+            score.save_score()
         return redirect('/leaderboard/')
 
-    context ={
-        'attempts' : request.session['attempts'],
-        'player_name' : request.session['player_name'],
+    top_players = LeaderboardScore.objects.order_by('attempts')[:10]
+    context = {
+        'top_players': top_players
     }
-    return render (request,'leaderboard.html', context)
+
+    return render(request, 'leaderboard.html', context)
