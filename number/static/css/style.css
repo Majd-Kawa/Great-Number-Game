@@ -4,16 +4,28 @@
     text-align: center;
 }
 
-h1 {
-    margin: 24px auto;
+body{
+    background-image: url("../images/backgroundd.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-h4 {
+h1, h2, p{
+    color: white;
+}
+
+h1 {
+    margin: 60px auto 24px;
+    font-size: 3rem;
+}
+
+h2 {
     margin: 12px auto;
 }
 
 p {
     margin: 8px auto;
+    font-size: 18px;
 }
 
 .result-box {
@@ -28,25 +40,31 @@ p {
     gap: 8px;
 }
 
-.high , .low {
-    background-color: red;
-    border: 2px solid black;
+.high, .low, .lose, .correct{
+    border: 3px solid darkslategrey;
+    border-radius: 18px;
+}
+
+.high {
+    background-color: #e30e3e;
+}
+
+.low {
+    background-color: #3ebcef;
 }
 
 .lose {
-    background-color: orange;
-    border: 2px solid black;
+    background-color: #f9c009;
 }
 
 .correct {
-    background-color: green;
-    border: 2px solid black;
+    background-color: #4ca354;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    width: 120px;
+    width: 140px;
     gap: 8px;
     margin: 24px auto;
 }
