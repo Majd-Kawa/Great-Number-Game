@@ -11,16 +11,19 @@
     <table>
         <thead>
             <tr>
+                <th>No.</th>
                 <th>Name</th>
                 <th>Attempts</th>
             </tr>
         </thead>
         <tbody>
-
-            <tr>
-                <td>{{ player_name }}</td>
-                <td>{{ attempts }}</td>
-            </tr>
+            {% for player in top_players %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ player.player_name }}</td>
+                    <td>{{ player.attempts }}</td>
+                </tr>
+            {% endfor %}
 
         </tbody>
     </table>
