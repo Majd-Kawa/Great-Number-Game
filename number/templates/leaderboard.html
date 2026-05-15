@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+    <h1>Leaderboard 🏆</h1>
+    <h2>Top 20 Players 🔥</h2>
     <table>
         <thead>
             <tr>
@@ -18,13 +20,32 @@
         </thead>
         <tbody>
             {% for player in top_players %}
-                <tr>
+                <tr class="{% if player.id == current_player_id %}highlight{% endif %}">
                     <td>{{ forloop.counter }}</td>
                     <td>{{ player.player_name }}</td>
                     <td>{{ player.attempts }}</td>
                 </tr>
             {% endfor %}
+        </tbody>
+    </table>
 
+    <h2>All Players 📋</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Name</th>
+                <th>Attempts</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for player in all_scores %}
+                <tr class="{% if player.id == current_player_id %}highlight{% endif %}">
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ player.player_name }}</td>
+                    <td>{{ player.attempts }}</td>
+                </tr>
+            {% endfor %}
         </tbody>
     </table>
     <form action="/reset/" method="POST">

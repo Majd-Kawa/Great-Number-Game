@@ -8,6 +8,3 @@ class LeaderboardScore(models.Model):
 
     def __str__(self):
         return f"{self.player_name} - {self.attempts}"
-    
-    def save_score(self):
-        self.save()

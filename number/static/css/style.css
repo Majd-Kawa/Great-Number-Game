@@ -150,3 +150,9 @@ table tr:nth-child(even) {
         padding: 12px;
     }
 }
+
+.highlight {
+    background: lightyellow;
+    font-weight: bold;
+}
+
