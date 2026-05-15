@@ -52,6 +52,7 @@ def guess(request):
             request.session['message'] = 'correct'
             request.session['game_over'] = True
             request.session['player_guess'] = player_guess
+            request.session['can_save'] = True
             return redirect ('/')
 
         if request.session['attempts'] >= 5:
@@ -65,14 +66,20 @@ def leaderboard(request):
         name = request.POST['player_name']
         attempts = request.session['attempts']
 
-        if request.session.get('message') == 'correct' and name:
+        if request.session.get('can_save') and name:
             score = LeaderboardScore(player_name=name, attempts=attempts)
-            score.save_score()
+            score.save()
+            request.session['player_id'] = score.id
+            request.session['can_save'] = False
         return redirect('/leaderboard/')
+    
+    all_scores = LeaderboardScore.objects.order_by('attempts')
 
-    top_players = LeaderboardScore.objects.order_by('attempts')[:10]
+    top_players = all_scores[:20]
     context = {
-        'top_players': top_players
+        'all_scores' : all_scores,
+        'top_players': top_players,
+        'current_player_id': request.session.get('player_id')
     }
 
     return render(request, 'leaderboard.html', context)

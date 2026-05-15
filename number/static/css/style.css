@@ -76,3 +76,9 @@ table th , table td{
     padding: 8px 16px;
     border: 1px solid lightslategray;
 }
+
+.highlight {
+    background: lightyellow;
+    font-weight: bold;
+}
+
