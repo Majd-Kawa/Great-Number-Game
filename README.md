@@ -15,15 +15,6 @@ A simple and fun number guessing game where the player tries to guess a randomly
 
 ---
 
-## 🕹️ How to Play
-1. Start the game
-2. Enter a number between **1 and 100**
-3. You have **5 attempts** to guess correctly
-4. The game gives hints after each guess **(Too High / Too Low / Correct)**
-5. Keep guessing until you find the secret number or run out of attempts.
-
----
-
 ## 📸 Screenshots
 
 ---
@@ -37,5 +28,62 @@ A simple and fun number guessing game where the player tries to guess a randomly
 
 ## ⚙️ Installation & Setup
 ### 1. Clone repo
-git clone 
+```bash
+git clone https://github.com/Majd-Kawa/Great-Number-Game.git 
+cd ninja_gold
+```
+
+### 2. Create virtual environment
+```bash
+python -m venv env
+```
+
+### 3. Activate virtual environment
+
+**Windows**
+```bash
+call env\Scripts\activate
+```
+
+**Mac/Linux**
+```bash
+source env/bin/activate
+```
+
+### 4. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 5. Run database migrations:
+python manage.py makemigrations
+python manage.py migrate
+
+### 6. Start server
+```bash
+python manage.py runserver
+```
+
+### 7. Visit in browser
+```
+http://127.0.0.1:8000
+```
+
+---
+
+## 🕹️ How to Play
+1. Start the game
+2. Enter a number between **1 and 100**
+3. You have **5 attempts** to guess correctly
+4. The game gives hints after each guess **(Too High / Too Low / Correct)**
+5. Keep guessing until you find the secret number or run out of attempts.
+
+---
+
+## 📌 Future Improvements
+•	Difficulty levels 
+•	Timer challenges 
+•	Replay option for endless fun 
+
+
 
