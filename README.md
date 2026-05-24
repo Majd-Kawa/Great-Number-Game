@@ -81,9 +81,9 @@ http://127.0.0.1:8000
 ---
 
 ## 📌 Future Improvements
-•	Difficulty levels 
-•	Timer challenges 
-•	Replay option for endless fun 
+-	Difficulty levels
+-	Timer challenges
+-	Replay option for endless fun 
 
 
 
