@@ -16,6 +16,14 @@ A simple and fun number guessing game where the player tries to guess a randomly
 ---
 
 ## 📸 Screenshots
+### Main Game Home Interface
+![Main game interface](screenshots/game-home-screen.png)
+
+### Leaderboard Table
+![Leaderboard table](screenshots/top-20-leaderboard.png)
+
+### Winning Players Table
+![Winning players table](screenshots/winning-players-board.png)
 
 ---
 
