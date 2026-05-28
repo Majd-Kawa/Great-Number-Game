@@ -30,7 +30,7 @@ A simple and fun number guessing game where the player tries to guess a randomly
 ## 🛠️ Tech Stack
 - **Frontend:** HTML, CSS
 - **Backend:** Python (Django)
-- **Database:** Leaderboard and player score tables
+- **Database:** MySQL
 
 ---
 
